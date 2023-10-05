@@ -47,13 +47,13 @@ También se guardará información sobre los extras que se han incluido, precio 
 matrícula y si era de stock o se ha tenido que encargar a fábrica. De los vendedores se almacenarán los datos personales
  (nombre, DNI, domicilio, etc.) y las ventas realizadas.
 
-###Base de Datos para un Gabinete de Abogados
+### Base de Datos para un Gabinete de Abogados
 
 Entidades:
 
 Asuntos
-Clientes
-Procuradores
+Cliente
+Procurador
 Atributos:
 
 Asuntos:
@@ -61,16 +61,16 @@ Asuntos:
 Número de expediente
 Período
 Estado (en trámite, archivado)
-Clientes:
+Cliente:
 
 DNI
 Nombre
 Dirección
-Procuradores:
+Procurador:
 
 Datos personales (DNI, nombre, dirección, etc.)
 
-####Base de Datos para una Compañía Aérea
+#### Base de Datos para una Compañía Aérea
 
 Entidades:
 
@@ -103,7 +103,7 @@ Avión
 Piloto
 Miembros de Tripulación
 
-#####Base de Datos para Concesionarios de Automóviles
+##### Base de Datos para Concesionarios de Automóviles
 
 Entidades:
 
@@ -148,3 +148,159 @@ Extras incluidos
 Fecha de entrega
 Matrícula
 
+file:///C:/Users/USUARIO/Downloads/primer%20repositorio/entidadatributo.pdf
+
+
+# Sistema de un Centro Cultural
+
+Un centro cultural quiere desarrollar un sistema para mantener y consultar la información de la historia de la música. Para esto se organiza la información por épocas, de las cuales se sabe el nombre único, diferentes características relevantes, el período (año de comienzo y año final) y los géneros musicales de la época. A su vez, de cada género, se quiere saber su nombre único, diversas características, sus orígenes, los músicos asociados a ese género y los instrumentos que intervenían en la ejecución de ese género.
+
+Sabemos que una época tiene varios géneros, pero que un género pertenece a una sola época. De cada músico, se sabe el nombre único, fecha de nacimiento, fecha de muerte y una historia de su vida. Un género tiene varios músicos, pero un músico pertenece a un solo género. De cada instrumento musical se tiene el nombre único, una foto, el lugar donde se creó, quién fue el creador, el tipo de instrumento (viento, teclado, etc.) y los materiales con que se hace. En un género se usan varios instrumentos, y un instrumento aparece en varios géneros. Adicionalmente, se quiere conocer la lista de obras famosas que se hicieron dentro de un género. De las obras famosas, se conoce un nombre único, el año en que se hizo, los músicos autores y la partitura. Tenga en cuenta que una obra famosa pertenece a un solo género, que una obra famosa la componen varios músicos y que un músico compone varias obras.
+
+ entidad:
+ epoca 
+ genero
+ música
+ instrumento 
+ obra famosa
+
+ epoca:
+ NOMBRE UNICO ID
+AÑO DE COMIENZO
+AÑO FINAL
+GENERO MUSICAL
+
+ genero:
+ NOMBRE UNICO ID
+ORIGEN
+MUSICOS ASOCIADOS A ESE GÉNERO
+
+ música:
+ NOMBRE UNICO ID
+FECHA DE NACIMIENTO
+FECHA DE MUERTE
+HISTORIA DE VIDA
+
+ instrumento :
+ NOMBRE UNICO ID
+FOTO
+LUGAR DONDE SE CREÓ
+CREADOR
+TIPO DE INSTRUMENTO
+MATERIALES CON QUE SE HACE.
+
+ obra famosa:
+ NOMBRE UNICO ID
+AÑO
+AUTOR
+PARTITURA 
+
+
+
+
+
+## Biblioteca
+
+Una reconocida Biblioteca se encuentra en la etapa de modelado de su base de datos. A continuación se enumeran los datos considerados al llevar adelante su diseño. Los libros son uno de los componentes más importantes. De cada uno de ellos nos interesa registrar su título (único entre todos los libros) y género al que pertenece. Además posee un conjunto de reseñas, que se encuentran conformadas por la revista donde apareció, la fecha y su texto descriptivo. Todo autor escribe al menos un libro, y a su vez todo libro tiene al menos un autor. De ellos interesa saber su nombre (que es único, no hay dos autores con el mismo nombre), su nacionalidad y año de nacimiento. Un libro tiene además al menos una edición. De ellas interesa el año, el ISBN (un identificador único entre ediciones de libros), y además su idioma. Las ediciones tienen como mínimo una copia, aunque las más demandadas tienen varias copias. Cada copia se diferencia por su número, aunque este número por sí solo no basta para diferenciarla: es necesario conocer además la edición a la que pertenecen. Finalmente, las copias son las que serán pedidas en préstamo por los usuarios. Un usuario pide prestada una copia en una fecha específica, y en ese momento se le asigna una fecha de devolución. Del usuario se conoce el DNI (que lo identifica de otros usuarios), su nombre, su apellido y un email. Un usuario puede no pedir copias. A su vez, puede que una copia nunca sea pedida en préstamo.
+
+entidades:
+ libro
+ edición 
+ copia
+ autor 
+ usuario 
+ reseña
+ prestamo
+
+libro:
+TITULO
+AUTOR
+EDICIÓNIIDIOMA
+GENERO
+ 
+ edición: 
+ AÑO
+ISBN
+IDIOMA
+NUMERODECOPIAS
+ 
+ copia:
+ NUMERO ID 
+EDICION
+
+ autor :
+ 
+LIBRO
+NOMBRE
+NACIONALIDAD
+AÑO DE NACIMIENTO
+
+ usuario :
+ DNI
+NOMBRE
+APELLIDO
+EMAIL
+
+ reseña:
+ REVISTAS
+FECHA
+TEXTO DESCRIPTIVO
+
+ prestamo:
+FECHA DE  INICIO
+FECHA DE DEVOLUCION 
+USUARIO
+COPIA
+### Qatar 2022
+
+Una página web de estadísticas deportivas desea realizar una base de datos para manejar la información de los partidos, equipos e hinchas que visitaron Qatar durante el mundial en el 2022. Sabemos que los partidos tienen un ID que los identifica en el sistema, así como también la instancia del torneo que se jugó en dicho partido (fase de grupos, octavos, etc.), la duración y la fecha en la que se jugó, compuesta por el día y la hora, el árbitro que dirigió ese partido y los equipos que jugaron el mismo. De los árbitros conocemos su pasaporte, de qué país son, el año en el que inició la actividad y su nombre y apellido, como también que árbitro reemplaza a cuál en caso de lesión o enfermedad; sabemos que un árbitro puede ser reemplazado por varios y que un árbitro reemplaza solo a uno. De los equipos que participan en los partidos conocemos el nombre de la selección, que es único entre el resto de las selecciones, el nombre del DT de esa selección, el lugar donde entrena y el cuerpo técnico que la compone, también conocemos los distintos jugadores que forman parte de las selecciones, de los que sabemos su número de camiseta, que los distingue dentro de un equipo, la posición que ocupan en la cancha, su nombre y apellido y el apodo de cada uno; es sabido que durante un mundial un jugador representa a un solo país y que en distintas selecciones puede haber jugadores con el mismo número. Al ser un mundial, un equipo puede jugar como mínimo tres partidos (quedó eliminado en fase de grupos) o llegar hasta siete (llegó a la final). En este sistema los estadios son sede de distintos partidos, de los mismos conocemos su nombre, la ciudad en la que se encuentran, su capacidad máxima y también la capacidad habitada y la cantidad de policías que se hacen presente en cada partido; también sabemos que los distintos hinchas pueden visitar los estadios (a los que llegan en distintos medios de transporte), los cuales reciben una gran cantidad de hinchas por partido, de ellos conocemos el número de ticket de cada uno, la vestimenta y la ubicación (compuesta de zona, fila y número de asiento) que tiene cada uno. Adicionalmente, sabemos que un partido se juega solo en un estadio y que en un estadio pueden jugarse muchos partidos.
+
+entidad:
+partido
+arbitro
+equipo
+jugadores
+estadios 
+inchas
+
+partido:
+ID
+INSTANCIA
+DURACION
+FECHA
+ARBITRO 
+EQUIPO
+
+arbitro:
+PASAPORTE
+NACIONALIDAD
+AÑO DE INICIO DE ACTICIDAD
+NOMBRE Y APELLIDO
+
+equipo:
+NOMBRE
+DT
+LUGAR DE ENTRETENIMIENTO
+CUERPO TECNICO
+
+jugadores:
+NUMERO DE CAMISETA 
+POSICION QUE OCUPAN
+NOMBRE 
+APELLIDO 
+APODO
+
+estadios :
+NUMERO DE CAMISETA 
+POSICION QUE OCUPAN
+NOMBRE 
+APELLIDO 
+APODO
+
+inchas:
+N TICKET
+VESTIMENTA
+UBICACION
+
+
+https://app.diagrams.net/#G1TOiR69OqpgGRg604rc5sy9MPNe0deQFm
